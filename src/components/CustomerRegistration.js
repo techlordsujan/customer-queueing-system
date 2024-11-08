@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import api from "../api";
 import { CircularProgress, TextField, Button } from "@mui/material";
 import useStyles from "./useStyles";
+import logo from "../assets/company_logo.png";
 
 const CustomerRegistration = () => {
   const [formData, setFormData] = useState({
@@ -42,6 +43,8 @@ const CustomerRegistration = () => {
     <div className={classes.container}>
       <form className={classes.form} onSubmit={handleSubmit}>
         <h2 className={classes.title}>Password Renewal Queuing Registration</h2>
+        <img src={logo} alt="Company Logo" className={classes.logo} />{" "}
+        {/* Logo image */}
         {message && (
           <p
             className={

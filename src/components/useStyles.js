@@ -32,6 +32,11 @@ const useStyles = makeStyles(() => ({
     textAlign: "center",
     marginTop: "10px",
   },
+  logo: {
+    width: "150px", // Adjust width as needed
+    margin: "20px auto",
+    display: "block",
+  },
 }));
 
 export default useStyles;
