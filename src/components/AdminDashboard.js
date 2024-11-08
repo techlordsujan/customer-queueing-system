@@ -177,7 +177,7 @@ const AdminDashboard = ({ setIsAuthenticated }) => {
               <TableRow key={customer._id}>
                 <TableCell>{customer.queueNumber}</TableCell>
                 <TableCell>{customer.firstName}</TableCell>
-                <TableCell>{customer.lastName}</TableCell>
+                <TableCell>{customer.lastName}</TableCell>  
                 <TableCell>{customer.email}</TableCell>
                 <TableCell>{customer.status}</TableCell>
                 <TableCell>

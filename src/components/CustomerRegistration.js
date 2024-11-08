@@ -27,11 +27,12 @@ const CustomerRegistration = () => {
       setFormData({ firstName: "", lastName: "", email: "" });
     } catch (error) {
       setError("true");
-      console.error(
-        "Registration Error:",
-        error.response.data || error.message
-      ); // Logs the error for debugging
-      setMessage("Registration failed. Please try again.");
+      console.log("Registration Error:", error.response.data || error.message); // Logs the error for debugging
+      setMessage(
+        error.response.data
+          ? error.response.data.message
+          : "Registration failed. Please try again."
+      );
     } finally {
       setLoading(false);
     }
