@@ -9,6 +9,7 @@ const CustomerRegistration = () => {
     firstName: "",
     lastName: "",
     email: "",
+    phone: "",
   });
   const [message, setMessage] = useState("");
   const [error, setError] = useState("true");
@@ -25,7 +26,7 @@ const CustomerRegistration = () => {
       setMessage(
         `Registration successful. Your queue number is ${response.data.customer.queueNumber}.`
       );
-      setFormData({ firstName: "", lastName: "", email: "" });
+      setFormData({ firstName: "", lastName: "", email: "", phone: "" });
     } catch (error) {
       setError("true");
       console.log("Registration Error:", error.response.data || error.message); // Logs the error for debugging
@@ -82,6 +83,15 @@ const CustomerRegistration = () => {
           variant="outlined"
           value={formData.email}
           onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+          style={{ marginBottom: "20px" }}
+          fullWidth
+        />
+        <TextField
+          type="phone"
+          label="Mobile"
+          variant="outlined"
+          value={formData.phone}
+          onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
           style={{ marginBottom: "20px" }}
           fullWidth
         />
