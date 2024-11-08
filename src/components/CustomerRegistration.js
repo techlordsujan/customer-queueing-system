@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import api from "../api";
-import { TextField, Button } from "@mui/material";
+import { CircularProgress, TextField, Button } from "@mui/material";
 import useStyles from "./useStyles";
 
 const CustomerRegistration = () => {
@@ -11,10 +11,12 @@ const CustomerRegistration = () => {
   });
   const [message, setMessage] = useState("");
   const [error, setError] = useState("true");
+  const [loading, setLoading] = useState(false);
   const classes = useStyles();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    setLoading(true);
     try {
       setMessage("");
       const response = await api.post("/register", formData); // Update the route to match your backend
@@ -30,6 +32,8 @@ const CustomerRegistration = () => {
         error.response.data || error.message
       ); // Logs the error for debugging
       setMessage("Registration failed. Please try again.");
+    } finally {
+      setLoading(false);
     }
   };
 
@@ -77,9 +81,13 @@ const CustomerRegistration = () => {
           style={{ marginBottom: "20px" }}
           fullWidth
         />
-        <Button variant="contained" color="secondary" type="submit" fullWidth>
-          Register
-        </Button>
+        {loading ? (
+          <CircularProgress style={{ margin: "20px 0" }} />
+        ) : (
+          <Button variant="contained" color="secondary" type="submit" fullWidth>
+            Register
+          </Button>
+        )}
       </form>
     </div>
   );
