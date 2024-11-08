@@ -14,8 +14,19 @@ import {
   Button,
   TableSortLabel,
 } from "@mui/material";
+import { makeStyles } from "@mui/styles";
+import logo from "../assets/company_logo.png";
+
+const useStyles = makeStyles(() => ({
+  logo: {
+    width: "150px", // Adjust width as needed
+    margin: "20px auto",
+    display: "block",
+  },
+}));
 
 const AdminDashboard = ({ setIsAuthenticated }) => {
+  const classes = useStyles();
   const [queue, setQueue] = useState([]);
   const [filteredQueue, setFilteredQueue] = useState([]);
   const [message, setMessage] = useState("");
@@ -118,7 +129,8 @@ const AdminDashboard = ({ setIsAuthenticated }) => {
 
   return (
     <div style={{ padding: "20px" }}>
-      <h2>Admin Dashboard</h2>
+      <img src={logo} alt="Company Logo" className={classes.logo} />{" "}
+      <h4>Passport Renewal- Admin Dashboard</h4>
       <Button
         onClick={handleLogout}
         variant="contained"
@@ -177,7 +189,7 @@ const AdminDashboard = ({ setIsAuthenticated }) => {
               <TableRow key={customer._id}>
                 <TableCell>{customer.queueNumber}</TableCell>
                 <TableCell>{customer.firstName}</TableCell>
-                <TableCell>{customer.lastName}</TableCell>  
+                <TableCell>{customer.lastName}</TableCell>
                 <TableCell>{customer.email}</TableCell>
                 <TableCell>{customer.status}</TableCell>
                 <TableCell>

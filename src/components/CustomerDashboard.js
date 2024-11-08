@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useLocation } from "react-router-dom";
 import api from "../api"; // Adjust the path as needed
 import { makeStyles } from "@mui/styles";
+import logo from "../assets/company_logo.png";
 
 const useStyles = makeStyles(() => ({
   container: {
@@ -28,6 +29,11 @@ const useStyles = makeStyles(() => ({
   message: {
     fontSize: "18px",
     marginBottom: "10px",
+  },
+  logo: {
+    width: "150px", // Adjust width as needed
+    margin: "20px auto",
+    display: "block",
   },
 }));
 
@@ -68,6 +74,7 @@ const CustomerDashboard = () => {
     <div className={classes.container}>
       <div className={classes.card}>
         <h2 className={classes.title}>Queue Status</h2>
+        <img src={logo} alt="Company Logo" className={classes.logo} />{" "}
         <h4 className={classes.title}>{email}</h4>
         {error && <p style={{ color: "red" }}>{error}</p>}
         <p className={classes.message}>Remaining Queue: {remainingQueue}</p>

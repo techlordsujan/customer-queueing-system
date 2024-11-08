@@ -3,6 +3,7 @@ import api from "../api";
 import { useNavigate } from "react-router-dom";
 import { TextField, Button } from "@mui/material";
 import useStyles from "./useStyles";
+import logo from "../assets/company_logo.png";
 
 const AdminLogin = ({ setIsAuthenticated }) => {
   const [credentials, setCredentials] = useState({
@@ -29,6 +30,7 @@ const AdminLogin = ({ setIsAuthenticated }) => {
     <div className={classes.container}>
       <form className={classes.form} onSubmit={handleLogin}>
         <h2 className={classes.title}>Queuing System: Admin Login</h2>
+        <img src={logo} alt="Company Logo" className={classes.logo} />{" "}
         <TextField
           label="Username"
           variant="outlined"
