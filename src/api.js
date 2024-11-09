@@ -2,7 +2,7 @@
 import axios from "axios";
 
 const api = axios.create({
-  baseURL: "https://eon.cmd.com.np/api", // Ensure this matches your backend URL
+  baseURL: process.env.REACT_APP_BASE_URL, // Ensure this matches your backend URL
 });
 
 export default api;

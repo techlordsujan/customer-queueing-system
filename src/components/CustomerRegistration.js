@@ -87,7 +87,7 @@ const CustomerRegistration = () => {
           fullWidth
         />
         <TextField
-          type="phone"
+          type="text"
           label="Mobile"
           variant="outlined"
           value={formData.phone}
